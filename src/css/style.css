@@ -1,0 +1,237 @@
+/*CSS stylesheet*/
+
+main {
+    font-family: 'Roboto', sans-serif;
+    color: #293845;
+}
+
+header {
+    width: 100%;
+    height: 67px;
+    background-color: #ff6713;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header div {
+    height: 67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    height: 62px;
+}
+
+.main-movies h1, .main-schedule h1, .main-seats h1{
+    width: 100%;
+    height: 110px;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.98);
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+}
+
+.movies-list {
+    width: 90%;
+    margin: 200px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.movies-list img {
+    width: 129px;
+    height: 193px;
+    padding: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;   
+}
+
+.movie-date-options {
+    width: 90%;
+    margin: 200px auto 0 auto;
+}
+
+.movie-date-options h2 {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.time-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 82px;
+    height: 43px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #E8833A;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.seat {
+    width: 13px;
+    height: 9px;
+    font-size: 11px;
+    color: #000;
+    background-color: #C3CFD9;
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.seats {
+    margin: 200px auto 50px auto;
+}
+
+.seats-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.seat-description {
+    margin-top: 15px;
+    justify-content: space-evenly;
+}
+
+.seat-description > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat-selected {
+    background-color: #8DD7CF;
+}
+
+.seat-available {
+    background-color: #C3CFD9;
+}
+
+.seat-unavailable {
+    background-color: #fb9292;
+}
+
+.main-seats h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.main-seats input {
+    width: 100%;
+    font-size: 18px;
+    padding: 20px;
+    border: 1px solid #D5D5D5;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.main-seats ::placeholder{
+    color: #AFAFAF;
+    font-style: italic;
+}
+
+.confirmation-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-info {
+    font-size: 18px;
+    color: #fff;
+    padding: 15px 25px;
+    background-color: #E8833A;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.confirm-info:hover {
+    background-color: #fa9c5a;
+}
+
+.confirm-movie {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(253, 142, 51, 0.192);
+}
+
+.confirm-movie img {
+    width: 64px;
+    height: 89px;
+    object-fit: cover;
+}
+
+.movie-info {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+.main-success {
+    width: 90%;
+    margin: 67px auto 0 auto;
+}
+
+.main-success h1  {
+    height: 110px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #247A6B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 20px 0 5px 0;
+}
+
+.info div {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.main-success button {
+    margin-top: 30px;
+}
+
+.hide {
+    display: none;
+}
