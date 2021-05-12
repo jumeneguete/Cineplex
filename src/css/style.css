@@ -34,7 +34,7 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(255, 255, 255, 0.97);
     position: fixed;
     top: 0;
     left: 0;
@@ -73,7 +73,6 @@ header img {
 
 .time-options {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -188,10 +187,11 @@ header img {
 .confirm-movie {
     width: 100%;
     padding: 20px;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 226, 202, 0.973);
+    background-color: #ff6613f6; 
     position: fixed;
     bottom: 0;
     left: 0;
