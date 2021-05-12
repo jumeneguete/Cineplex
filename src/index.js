@@ -21,7 +21,7 @@ function App() {
                         <ChooseMovie />
                     </Route>
 
-                    <Route path="/date" exact>
+                    <Route path="/session/:idMovie" exact>
                         <ChooseDate />
                     </Route>
 
