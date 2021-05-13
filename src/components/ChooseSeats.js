@@ -16,7 +16,7 @@ export default function ChooseSeats() {
     }, []);
 
     console.log(info.movie)
-    console.log(info.day)
+    console.log(info)
 
 
     return (
@@ -41,28 +41,28 @@ export default function ChooseSeats() {
                     </div>
                     <div className="row">
                         {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 30  && parseInt(x.name) > 20).map(y => (
+                            seats.filter(x => parseInt(x.name) <= 30 && parseInt(x.name) > 20).map(y => (
 
                                 <div className="seat">{y.name}</div>
                             ))}
                     </div>
                     <div className="row">
                         {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 40  && parseInt(x.name) > 30).map(y => (
+                            seats.filter(x => parseInt(x.name) <= 40 && parseInt(x.name) > 30).map(y => (
 
                                 <div className="seat">{y.name}</div>
                             ))}
                     </div>
                     <div className="row">
                         {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 50  && parseInt(x.name) > 40).map(y => (
+                            seats.filter(x => parseInt(x.name) <= 50 && parseInt(x.name) > 40).map(y => (
 
                                 <div className="seat">{y.name}</div>
                             ))}
                     </div>
                     <div className="row">
                         {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 60  && parseInt(x.name) > 50).map(y => (
+                            seats.filter(x => parseInt(x.name) <= 60 && parseInt(x.name) > 50).map(y => (
 
                                 <div className="seat">{y.name}</div>
                             ))}
@@ -94,14 +94,17 @@ export default function ChooseSeats() {
                 <div className="confirmation-button"><button className="confirm-info">Reservar assento(s)</button></div>
             </div>
 
-            <div className="confirm-movie">
-                <img src={info.movie.posterURL} alt={info.movie.title}/>
-                <div className="movie-info">
-                    <div>{info.movie.title}</div>
-                    <div>{info.day.weekday} - {info.day.date}</div>
-                    <div>{info.name}</div>
+            {info.movie === undefined && info.day === undefined ? "" :
+
+                <div className="confirm-movie">
+                    <img src={info.movie.posterURL} alt={info.movie.title} />
+                    <div className="movie-info">
+                        <div>{info.movie.title}</div>
+                        <div>{info.day.weekday} - {info.day.date}</div>
+                        <div>{info.name}</div>
+                    </div>
                 </div>
-            </div>
+            }
         </main>
     );
 }
