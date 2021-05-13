@@ -25,7 +25,7 @@ function App() {
                         <ChooseDate />
                     </Route>
 
-                    <Route path="/seats" exact>
+                    <Route path="/seats/:idSession" exact>
                         <ChooseSeats />
                     </Route>
 

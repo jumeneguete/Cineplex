@@ -1,4 +1,24 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 export default function ChooseSeats() {
+    const [seats, setSeats] = useState([]);
+    const [info, setInfo] = useState([]);
+    const { idSession } = useParams();
+
+    useEffect(() => {
+        const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSession}/seats`);
+        promise.then((response) => {
+            setSeats(response.data.seats);
+            setInfo(response.data);
+        })
+    }, []);
+
+    console.log(info.movie)
+    console.log(info.day)
+
+
     return (
         <main className="main-seats">
             <div className="seats-container">
@@ -6,90 +26,48 @@ export default function ChooseSeats() {
 
                 <div className="seats">
                     <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 10).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
+                    </div>
+                    <div className="row">
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 20 && parseInt(x.name) > 10).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
+                    </div>
+                    <div className="row">
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 30  && parseInt(x.name) > 20).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
+                    </div>
+                    <div className="row">
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 40  && parseInt(x.name) > 30).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
+                    </div>
+                    <div className="row">
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 50  && parseInt(x.name) > 40).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
+                    </div>
+                    <div className="row">
+                        {seats === undefined ? "" :
+                            seats.filter(x => parseInt(x.name) <= 60  && parseInt(x.name) > 50).map(y => (
+
+                                <div className="seat">{y.name}</div>
+                            ))}
                     </div>
 
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
-                    </div>
-
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
-                    </div>
-
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
-                    </div>
-
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
-                    </div>
-
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                        <div className="seat">06</div>
-                        <div className="seat">07</div>
-                        <div className="seat">08</div>
-                        <div className="seat">09</div>
-                        <div className="seat">10</div>
-                    </div>
-
-                    <div className="row">
-                        <div className="seat">01</div>
-                        <div className="seat">02</div>
-                        <div className="seat">03</div>
-                        <div className="seat">04</div>
-                        <div className="seat">05</div>
-                    </div>
 
                     <div className="row seat-description">
                         <div>
@@ -117,10 +95,11 @@ export default function ChooseSeats() {
             </div>
 
             <div className="confirm-movie">
-                <img src="https://http2.mlstatic.com/D_NQ_NP_911447-MLB30001653799_042019-O.jpg" alt="Vingadores Ultimato" />
+                <img src={info.movie.posterURL} alt={info.movie.title}/>
                 <div className="movie-info">
-                    <div>Vingadores Ultimato</div>
-                    <div>Quinta-feira - 15:00</div>
+                    <div>{info.movie.title}</div>
+                    <div>{info.day.weekday} - {info.day.date}</div>
+                    <div>{info.name}</div>
                 </div>
             </div>
         </main>

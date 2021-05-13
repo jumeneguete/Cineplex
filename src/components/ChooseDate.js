@@ -13,8 +13,6 @@ export default function ChooseDate() {
         });
     }, []);
 
-    console.log(timetable.days)
-
     return (
         <main className="main-schedule">
             <div className="schedule">
