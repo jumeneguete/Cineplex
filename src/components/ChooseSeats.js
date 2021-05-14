@@ -16,8 +16,22 @@ export default function ChooseSeats() {
         promise.then((response) => {
             setSeats(response.data.seats);
             setInfo(response.data);
+            SeatUnvailable(response.data.seats);
         })
     }, []);
+
+    function SeatUnvailable(seats){
+        let newSeats =[]
+        for (let i=0; i<seats.length; i++){
+            if (!seats[i].isAvailable){
+                seats[i].blocked = true;
+            }
+            newSeats.push(seats[i]);
+        }
+        console.log(newSeats)
+        setSeats(newSeats);
+        
+    }
 
     function toggleSeat(id, available) {
 
@@ -31,7 +45,6 @@ export default function ChooseSeats() {
 
         setSeats(selectedSeat);
     }
-
 
     return (
         <main className="main-seats">
