@@ -48,3 +48,6 @@ export default function SeatsRow({ seats, toggleSeat }) {
 
     );
 }
+
+//cada div className="row" é uma fileira de 10 assentos para representar a organização da sala de exibição do filme
+//numeradas assim: fileira 1: 1-10, fileira 2: 11-20, fileira 3: 21-30, etc

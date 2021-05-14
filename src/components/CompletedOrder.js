@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 
 export default function CompletedOrder({ info, buyer, cpf, selectedSeats }) {
-    console.log(info)
+   
     return (
         <main className="main-success">
             <h1>Pedido feito <br /> com sucesso!</h1>

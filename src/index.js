@@ -13,11 +13,9 @@ import "./css/style.css";
 
 function App() {
 
-    const [info, setInfo] = useState([]);
-    
+    const [info, setInfo] = useState([]);  
     const [buyer, setBuyer] = useState("");
     const [cpf, setCpf] = useState("");
-
     const [selectedSeats, setSelectedSeats] = useState([]);
 
     return (

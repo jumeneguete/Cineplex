@@ -1,6 +1,5 @@
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
 import axios from "axios";
 import SeatsRow from "./SeatsRow";
 import SeatsDescription from "./SeatsDescription";
@@ -45,6 +44,8 @@ export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf
         setSeats(selectedSeat);
     }
 
+    const history= useHistory();
+
     function reservation(){
         const conditionInput = buyer !== "" && cpf !== "";
         const conditionSeats = seats.filter((x)=> !x.isAvailable && !x.blocked);
@@ -60,9 +61,14 @@ export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf
             }
 
             const promise= axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many", obj);
+            promise.then(()=> history.push("/success"));
+            
+        } else {
+            alert("Selecione um assento válido ou verifique se seus dados estão preenchidos corretamente")
         }
         
     }
+
 
 
     return (
@@ -75,9 +81,7 @@ export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf
                 </div>
                 <SeatsInput buyer={buyer} setBuyer={setBuyer} cpf={cpf} setCpf={setCpf} />
                 <div className="confirmation-button">
-                    <Link to={"/success"}>
                         <button className="confirm-info" onClick={() => reservation()}>Reservar assento(s)</button>
-                    </Link>
                 </div>
             </div>
 
