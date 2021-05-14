@@ -44,9 +44,7 @@ export default function SeatsRow({ seats, toggleSeat }) {
                         <div onClick={() => toggleSeat(y.id, y.isAvailable)} className={`seat ${!y.isAvailable ? "seat-selected" : ""} ${y.blocked ? "seat-unavailable" : ""}`}>{y.name}</div>
                     ))}
             </div>
-
         </>
-
 
     );
 }

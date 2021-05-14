@@ -1,15 +1,15 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import SeatsRow from "./SeatsRow";
 import SeatsDescription from "./SeatsDescription";
 import SeatsInput from "./SeatsInput";
 import SeatsFooter from "./SeatsFooter";
 
-export default function ChooseSeats() {
-    const [seats, setSeats] = useState([]);
-    const [info, setInfo] = useState([]);
-    const { idSession } = useParams();
+export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf, setSelectedSeats}) {
+    const { idSession } = useParams(); 
+    const [seats, setSeats] = useState([]);    
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSession}/seats`);
@@ -20,17 +20,16 @@ export default function ChooseSeats() {
         })
     }, []);
 
-    function SeatUnvailable(seats){
-        let newSeats =[]
-        for (let i=0; i<seats.length; i++){
-            if (!seats[i].isAvailable){
+    function SeatUnvailable(seats) {
+        let newSeats = []
+        for (let i = 0; i < seats.length; i++) {
+            if (!seats[i].isAvailable) {
                 seats[i].blocked = true;
             }
             newSeats.push(seats[i]);
         }
-        console.log(newSeats)
         setSeats(newSeats);
-        
+
     }
 
     function toggleSeat(id, available) {
@@ -46,6 +45,26 @@ export default function ChooseSeats() {
         setSeats(selectedSeat);
     }
 
+    function reservation(){
+        const conditionInput = buyer !== "" && cpf !== "";
+        const conditionSeats = seats.filter((x)=> !x.isAvailable && !x.blocked);
+        setSelectedSeats(conditionSeats);
+
+        if (conditionInput && conditionSeats.length !== 0){
+            const idList = conditionSeats.map((y) => y.id)
+
+            const obj = {
+                ids: idList,
+                name: buyer,
+                cpf: cpf
+            }
+
+            const promise= axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many", obj);
+        }
+        
+    }
+
+
     return (
         <main className="main-seats">
             <div className="seats-container">
@@ -54,11 +73,15 @@ export default function ChooseSeats() {
                     <SeatsRow seats={seats} toggleSeat={toggleSeat} />
                     <SeatsDescription />
                 </div>
-                <SeatsInput />
-                <div className="confirmation-button"><button className="confirm-info">Reservar assento(s)</button></div>
+                <SeatsInput buyer={buyer} setBuyer={setBuyer} cpf={cpf} setCpf={setCpf} />
+                <div className="confirmation-button">
+                    <Link to={"/success"}>
+                        <button className="confirm-info" onClick={() => reservation()}>Reservar assento(s)</button>
+                    </Link>
+                </div>
             </div>
 
-            <SeatsFooter info = {info}/>
+            <SeatsFooter info={info} />
         </main>
     );
 }
