@@ -1,6 +1,10 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SeatsRow from "./SeatsRow";
+import SeatsDescription from "./SeatsDescription";
+import SeatsInput from "./SeatsInput";
+import SeatsFooter from "./SeatsFooter";
 
 export default function ChooseSeats() {
     const [seats, setSeats] = useState([]);
@@ -15,96 +19,33 @@ export default function ChooseSeats() {
         })
     }, []);
 
-    console.log(info.movie)
-    console.log(info)
+    function toggleSeat(id, available) {
+
+        const selectedSeat = seats.map(x => {
+            if (x.id === id) {
+                x.isAvailable = !available
+            }
+            return x;
+        });
+
+
+        setSeats(selectedSeat);
+    }
 
 
     return (
         <main className="main-seats">
             <div className="seats-container">
                 <h1>Selecione o(s) assento(s)</h1>
-
                 <div className="seats">
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 10).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 20 && parseInt(x.name) > 10).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 30 && parseInt(x.name) > 20).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 40 && parseInt(x.name) > 30).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 50 && parseInt(x.name) > 40).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-                    <div className="row">
-                        {seats === undefined ? "" :
-                            seats.filter(x => parseInt(x.name) <= 60 && parseInt(x.name) > 50).map(y => (
-
-                                <div className="seat">{y.name}</div>
-                            ))}
-                    </div>
-
-
-                    <div className="row seat-description">
-                        <div>
-                            <div className="seat seat-selected"></div>
-                                Selecionado
-                            </div>
-                        <div>
-                            <div className="seat seat-available"></div>
-                                Disponível
-                            </div>
-                        <div>
-                            <div className="seat seat-unavailable"></div>
-                                Indisponível
-                            </div>
-                    </div>
+                    <SeatsRow seats={seats} toggleSeat={toggleSeat} />
+                    <SeatsDescription />
                 </div>
-
-                <h2>Nome do Comprador:</h2>
-                <input type="text" placeholder="Digite seu nome" />
-
-                <h2>CPF do comprador:</h2>
-                <input type="number" placeholder="Digite seu CPF" />
-
+                <SeatsInput />
                 <div className="confirmation-button"><button className="confirm-info">Reservar assento(s)</button></div>
             </div>
 
-            {info.movie === undefined && info.day === undefined ? "" :
-
-                <div className="confirm-movie">
-                    <img src={info.movie.posterURL} alt={info.movie.title} />
-                    <div className="movie-info">
-                        <div>{info.movie.title}</div>
-                        <div>{info.day.weekday} - {info.day.date}</div>
-                        <div>{info.name}</div>
-                    </div>
-                </div>
-            }
+            <SeatsFooter info = {info}/>
         </main>
     );
 }
