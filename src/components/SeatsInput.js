@@ -8,7 +8,7 @@ export default function SeatsInput({buyer, setBuyer, cpf, setCpf}) {
             <input type="text" onChange={(e) => {setBuyer(e.target.value)}} value={buyer} placeholder="Digite seu nome" />
 
             <h2>CPF do comprador:</h2>
-            <input type="number" onChange={(e) => {setCpf(e.target.value)}} value={cpf} placeholder="Digite seu CPF (somente números)" />
+            <input type="number" onChange={(e) => {setCpf(e.target.value)}} value={cpf} placeholder="Digite seu CPF" />
         </>
     );
 }
