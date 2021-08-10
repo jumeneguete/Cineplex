@@ -23,7 +23,7 @@ This is an web application where people can book a movie session in the cinema. 
 - React-router
 - Styled-components
 - Axios
-- Bootcamp Responde Aí API -  https://link-to-my-project-deployed.herokuapp.com
+- API provided by Bootcamp Responde Aí  -  https://link-to-my-project-deployed.herokuapp.com
 
 ### 🔸🔸How to run
 
