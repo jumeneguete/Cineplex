@@ -13,11 +13,15 @@ This is an web application with which people can book seats to watch a movie in 
 
 - Movie selection
 - Date selection
-- Sats selection
-- Successfully booked
+- Seats selection
+- Required fields to fill
+- Successfully booked with booking details
 
 ### Technologies
 - React.js
+- React-router
+- Styled-components
+- Axios
 - Bootcamp Responde Aí API -  https://link-to-my-project-deployed.herokuapp.com
 
 ### How to run
