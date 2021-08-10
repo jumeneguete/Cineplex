@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import StyledH1 from "./StyledH1";
 
 export default function ChooseMovie() {
     const [movies, setMovies] = useState([]);
@@ -14,7 +15,7 @@ export default function ChooseMovie() {
 
     return (
         <main className="main-movies">
-            <h1>Selecione o filme</h1>
+            <StyledH1>Selecione o filme</StyledH1>
             <div className="movies-list">
                 {movies.map(x => (
                     <Link to={`/session/${x.id}`} >

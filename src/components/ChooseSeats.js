@@ -5,6 +5,7 @@ import SeatsRow from "./SeatsRow";
 import SeatsDescription from "./SeatsDescription";
 import SeatsInput from "./SeatsInput";
 import SeatsFooter from "./SeatsFooter";
+import StyledH1 from "./StyledH1";
 
 export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf, setSelectedSeats}) {
     const { idSession } = useParams(); 
@@ -74,7 +75,7 @@ export default function ChooseSeats({info, setInfo, buyer, setBuyer, cpf, setCpf
     return (
         <main className="main-seats">
             <div className="seats-container">
-                <h1>Selecione o(s) assento(s)</h1>
+                <StyledH1>Selecione o(s) assento(s)</StyledH1>
                 <div className="seats">
                     <SeatsRow seats={seats} toggleSeat={toggleSeat} />
                     <SeatsDescription />

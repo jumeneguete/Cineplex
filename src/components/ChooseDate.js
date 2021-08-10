@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import StyledH1 from "./StyledH1";
 
 export default function ChooseDate() {
     const [timetable, setTimetable] = useState([]);
@@ -16,7 +17,7 @@ export default function ChooseDate() {
     return (
         <main className="main-schedule">
             <div className="schedule">
-                <h1>Selecione o horário</h1>
+                <StyledH1>Selecione o horário</StyledH1>
 
                 <div className="movie-date-options">
                     {timetable.days === undefined ? "" :
