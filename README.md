@@ -10,7 +10,7 @@ Try it out now at https://link-to-my-project-deployed.herokuapp.com
 
 ### 🔸🔸About
 
-This is an web application with which people can book seats to watch a movie in the cinema. Below are the implemented features:
+This is an web application where people can book a movie session in the cinema. Below are the implemented features:
 
 - Movie selection
 - Date selection
