@@ -5,8 +5,6 @@ Choose you favorite movie, date, and seats, and easily book your tickets!
 
 <p align="center"><img width="400px" src="/assets/cineplex.gif" /></p>
 
-Try it out now at https://link-to-my-project-deployed.herokuapp.com
-
 
 ### 🔸🔸About
 
