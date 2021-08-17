@@ -26,7 +26,7 @@ This is an web application where people can book a movie session in the cinema. 
 ### 🔸🔸Disclaimer
 With this applications I was focused on training how to send requests and and get responses from API with axios, and how to use hook from ReactJS  to re-render components on screen. <br>
 I like this project very much because I love goin to movies! <br>
-Some refactorins have already be done, but there are several possibilities for improvement in this project, that may be done in the future.
+Some refactoring have already be done, but there are several possibilities for improvement in this project, that may be done in the future.
 
 ### 🔸🔸How to run
 
