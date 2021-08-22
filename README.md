@@ -21,7 +21,7 @@ This is an web application where people can book a movie session in the cinema. 
 - React-router
 - Styled-components
 - Axios
-- API provided by Bootcamp Responde Aí  -  https://link-to-my-project-deployed.herokuapp.com
+- API provided by Bootcamp Responde Aí  -  https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies
 
 ### 🔸🔸Disclaimer
 With this applications I was focused on training how to send requests and and get responses from API with axios, and how to use hook from ReactJS  to re-render components on screen. <br>
